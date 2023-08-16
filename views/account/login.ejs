@@ -1,0 +1,38 @@
+<h2>Login</h2>
+<%- include('../partials/errorMessage.ejs') %>
+<div class="log-form">
+  <form action="/account/login" method="POST">
+    <div class="form-row">
+      <div class="form-item">
+        <label for="username">Username or Email:</label>
+        <input
+          type="text"
+          id="username"
+          class="login-field"
+          name="username"
+          pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$|[A-Za-z0-9]+"
+          maxlength="255"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-item">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          class="login-field"
+          name="password"
+          maxlength="50"
+          required
+        />
+      </div>
+    </div>
+    <input type="submit" class="index-btn" value="Login" />
+  </form>
+</div>
+<div class="log-links">
+  <h3>Forgot your Password</h3>
+  <h3><a href="/account/register">Sign Up</a></h3>
+</div>

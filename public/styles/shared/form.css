@@ -1,0 +1,102 @@
+.form-row{
+    display: flex;
+    margin-bottom:.5rem;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    flex-grow:1;
+    flex-basis:0;
+}
+
+.form-item:first-child{
+    margin-left: 0;
+}
+
+.form-item-no-grow{
+    flex-grow: 0;
+}
+
+.form-row-end{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+
+.form-item > label{
+    font-size: 16px;
+    font-family: 'Nunito';
+    margin-bottom: .25rem;
+    margin-left: .25rem;
+    font-weight: 200;
+}
+
+.form-item > select{
+    font-size: 18px !important;
+    
+    
+}
+
+.form-item input, .form-item select, .form-item textarea{
+    height: 2rem;
+    padding: .25rem .5rem;
+    border-radius:.25rem;
+    border: 1px solid rgb(48, 89, 239);
+    background: rgb(218, 234, 236);
+    font-size: 1.5rem;
+    color: black;
+    font-family: 'Abel', sans-serif;
+    outline: none;
+
+}
+.form-item textarea{
+    height: 400px;
+}
+.form-item input:focus , .form-item select:focus , .form-item textarea:focus {
+    border-color: whitesmoke;
+
+}
+.login-field{
+    max-width: 400px;
+}
+
+.log-form{
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.log-links h3{
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.log-links h3 a{
+    text-decoration: none;
+}
+
+.half-row{
+    max-width: calc(50% - 1em);
+}
+
+@media (max-width: 600px){
+    .half-row{
+        max-width: 100%;
+    }  
+    .form-row{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    .form-item{
+       width: 100%;
+       margin-left: 0;
+    }
+
+}

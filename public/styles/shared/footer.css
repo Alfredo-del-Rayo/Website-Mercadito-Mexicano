@@ -1,0 +1,144 @@
+footer{
+    height: 80%;
+    align-self: center;
+    font-family: 'Abel';
+    font-size: larger;
+    display: grid;
+    grid-template-rows: 1fr ;
+}
+
+footer h4{
+   text-align: center; 
+   font-size: 32px;
+
+}
+
+footer p{
+    text-align:center;
+    font-family: 'Inter';
+}
+
+.subscribe-btn{
+ background-color: rgb(105, 173, 111);
+ border-color: greenyellow;
+ height: 40px;
+ cursor: pointer;
+}
+
+.subscribe-btn:hover{
+    background-color: green;
+}
+
+.subscribe-input{
+ background-color: whitesmoke;
+ height:40px;
+ text-align: center;
+ border-radius: 2px;
+ font-family: 'Inter';
+ border-color: aqua;
+}
+.subscribe-input:focus{
+    border-color: blue;
+}
+
+footer form{
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    align-content: center ;
+}
+
+.social img{
+    margin-top: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 40px;
+}
+
+.foot-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.social{
+    display: flex;
+    width: 250px;
+    flex-flow: nowrap column;
+    justify-content: space-around;
+    height: 100%;
+    margin: 0 5%;
+}
+
+.social h4{
+    font-size: 20px;
+    font-family:'Poppins';  
+}
+
+.social-container{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+.policies h4{
+    font-size: 20px;
+    font-family:'Poppins';  
+}
+.policies{
+    margin-bottom: 20px;
+}
+.policies p{
+    text-align: center;
+    font-size: 15px;
+    margin: 5px 0;
+    color: gray;
+}
+
+.policies p:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.policies nav a{
+    text-decoration: none;
+}
+.contact{
+    font-family: 'Abel';
+    font-size: 16px;
+}
+.contact h5{
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Poppins';
+}
+
+.contact h4{
+    font-size: 20px;
+    font-family:'Poppins';  
+}
+
+.contact a{
+    text-decoration: none;
+    color:grey
+}
+
+.contact p a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+@media(max-width: 1000px){
+    .foot-container{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .social{
+        margin-top: 50px;
+    }
+
+    .contact{
+        margin-bottom: 50px ;
+    }
+}
+
+

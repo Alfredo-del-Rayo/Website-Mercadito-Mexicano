@@ -1,0 +1,247 @@
+
+/*RESET*/
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root{
+    --HEADER-HEIGHT: 7em;
+    --MARGIN-NAV: clamp(2em,5%,3em);
+    --TOPBG: black;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    outline: groove rgba(76, 75, 75, 0.21);
+    background: linear-gradient(to top, aliceblue, whitesmoke );
+    margin-bottom: 10px;
+    top:0;
+}
+
+header{
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: space-around;
+    align-self: center;
+    height: var(--HEADER-HEIGHT);
+    margin-top:0;
+    transition: all .3s linear;
+    max-width: 1200px;
+    width: 100%;
+}
+
+ .header__logo{
+    height: calc(var(--HEADER-HEIGHT) - 5px);
+    margin: 2.5px 0;
+    width:calc(var(--HEADER-HEIGHT) - 5px);
+}
+
+.desktop{
+    height: 100%;
+    margin: 0;
+    display: none;
+}
+.nav__panel{
+    align-self: flex-end;
+    display: flex;
+    font-family: 'Poppins';
+    font-size: 15px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav__panel ul{
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 5px;
+
+}
+
+.nav__panel ul li{
+    align-self: flex-end;
+}
+
+.nav__panel > ul > li{
+    float: left;
+    position: relative;
+}
+
+.nav__panel ul li a{
+    text-decoration: none;
+    color: black;
+    padding: 15px 15px;
+    display: block;
+}
+
+.nav__panel ul li:hover a{
+    background: skyblue;
+}
+.nav__panel ul li li:hover a{
+    background: aliceblue;
+}
+
+.nav__panel ul ul{
+    position: absolute;
+    padding: 0;
+    min-width: 160px;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.nav__panel ul li:hover > ul{
+    display: block;
+}
+
+.right__panel{
+    display: flex;
+}
+.right__panel > ul{
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+    align-self: center;
+   
+}
+
+.right__panel ul li {
+    margin: 0 5px;
+    font-family: 'Poppins';
+    color: black;
+}
+
+.right__panel ul li a {
+    font-weight: bolder;
+    color: black;
+}
+
+.right__panel > ul > li:hover {
+    transform:scale(2);
+}
+
+.mobile{
+    width: 100%;
+    display: none;
+    flex-direction:column;
+    z-index: 2;
+}
+.mobile nav{
+    display:flex;
+    width: 100%;
+    position: absolute;
+    top:calc(var(--HEADER-HEIGHT)+ 2px);
+    margin:0;
+    padding:0;
+
+}
+.mobile nav ul{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+}
+
+.mobile .nav__panel ul ul{
+    position: static;
+}
+.mobile nav ul li{
+    background: rgb(216, 233, 248);
+    display:block;
+    outline: solid whitesmoke;
+    width: 100%;
+}
+.mobile .nav__panel > ul > li{
+    display: block;
+    float: none;
+}
+
+.mobile .nav__panel ul ul{
+    display: none;
+}
+.mobile .nav__panel ul li:hover ul{
+   display: block;
+}
+
+#menu{
+    display: none;
+    cursor: pointer;
+}
+#close{
+    display: none;
+    cursor: pointer;
+}
+
+.user-logo {
+  font-weight: bolder;
+  display: inline-block;
+  width: 2em; 
+  height: 2em;
+  border-radius: 50%;
+  background-color: #ccc; 
+  text-align: center;
+  line-height: 2em; 
+  font-size: 1em; 
+  cursor: pointer;
+}
+
+.user-popout {
+    position: absolute;
+    display:none;
+    list-style: none;
+    padding: 0;
+    top: 100%;
+    min-width: 160px;
+    right: 0;
+    z-index: 1;
+    align-items: center;
+}
+.user-popout > li{
+    float: left;
+    position: relative;
+    min-width: 160px;
+    font-weight: 200;
+    background-color: skyblue;
+}
+.user-popout  li a{
+    font-size: 15px;
+    font-family: 'Poppins';
+    text-decoration: none;
+}
+.no-grow:hover .user-logo{
+    transform: scale(.5);
+}
+.user-logo:hover{
+    transform: scale(.5);
+}
+.user-logo:hover .user-popout{
+    display: block;
+  }
+
+  .user-popout li:hover{
+    background-color: whitesmoke;
+  }
+
+  .shopping-items {
+    font-weight: bolder;
+    display: inline-block;
+    vertical-align: top;
+    width: 1.6em; 
+    height: 1.6em;
+    border-radius: .8em;
+    background-color: #62b1e2; 
+    text-align: center;
+    font-size: .6em; 
+    transform: translateX(-10px);
+    color: white;
+  }
+.shopping-bag{
+    text-decoration: none;
+}

@@ -1,0 +1,82 @@
+<% products.forEach(product => { %><% if ( product['Variant Inventory Qty'] >
+0){ %> <% productImage = product["Option1 Value"] === 'DefaultTitle'?
+product["Image Src"] : product["Variant Image"] %>
+<div class="product-row">
+  <div class="product-side">
+    <div class="product-image">
+      <a href="/products/<%= product.Handle %>">
+        <img src="/images/<%= productImage%>" />
+      </a>
+    </div>
+    <div class="product-description">
+      <p><%= product.Title %></p>
+      <% if (product["Option1 Value"] != 'Default Title'){ %>
+      <p class="variant-heading"><%= product["Option1 Value"] %></p>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="product-price">
+    <p>$<%= product['Variant Price'].toFixed(2) %></p>
+    <% sum += product['Variant Price'] %>
+  </div>
+</div>
+
+<% }}) %>
+<div class="product-row-title">
+  <div class="indent-right">
+    <h3>Subtotal:&nbsp;</h3>
+  </div>
+  <div class="bolder-font">
+    <h3>
+      $<%= sum.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+      CAD
+    </h3>
+  </div>
+</div>
+<% let gst= sum * .05; let pst = sum *.07; let shipping = products.length * 20;
+sum += sum *.12 + shipping %>
+<div class="product-row-title">
+  <div class="indent-right">
+    <h3>GST ( 5% ):&nbsp;</h3>
+  </div>
+  <div class="bolder-font">
+    <h3>
+      $<%= gst.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+      CAD
+    </h3>
+  </div>
+</div>
+<div class="product-row-title">
+  <div class="indent-right">
+    <h3>PST ( 7% ):&nbsp;</h3>
+  </div>
+  <div class="bolder-font">
+    <h3>
+      $<%= pst.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+      CAD
+    </h3>
+  </div>
+</div>
+<div class="product-row-title">
+  <div class="indent-right">
+    <h3>Shipping:&nbsp;</h3>
+  </div>
+  <div class="bolder-font">
+    <h3>
+      $<%= shipping.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      %> CAD
+    </h3>
+  </div>
+</div>
+<div class="product-row-title">
+  <div class="indent-right">
+    <h3>Total:&nbsp;</h3>
+  </div>
+  <div class="bolder-font">
+    <h3>
+      $<%= sum.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %>
+      CAD
+    </h3>
+  </div>
+</div>

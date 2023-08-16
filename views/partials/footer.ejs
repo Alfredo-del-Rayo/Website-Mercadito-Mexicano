@@ -1,0 +1,80 @@
+<footer>
+  <div class="foot-container">
+    <div class="social">
+      <h4>Find us on Social Media</h4>
+      <div class="social-container">
+        <a href="https://www.facebook.com/search/top?q=mercadito%20mexicano"
+          ><img src="/Icons/Facebook.png"
+        /></a>
+        <a href="https://www.instagram.com/mercaditomexicanovancouver/"
+          ><img src="/Icons/Instagram.png"
+        /></a>
+        <a href="https://www.facebook.com/mercaditomexicano.ca/"
+          ><img src="/Icons/Messenger.png"
+        /></a>
+        <a
+          href="https://api.whatsapp.com/send?phone=%2B16049104900&data=ARBIz__L02zboHn7LdwCvEHVK1rrnisIEehE7wb_3YQRxj2TwaZ7YGK4uQc7OejmJyYH-GADY7PdnOdXIKe2yQh-H9yXK9NPi7_TbR4rClQlt7V8qeBCgL97xz7SU2bbX3QCo4kALlraET7bZRiCqnq-aw&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0-fPuf47gNsaBc_bwKKDyZ83ATXN5UUDSEYflcHs3nZ79U9C--voAEHmw"
+          ><img src="/Icons/WhatsApp.png"
+        /></a>
+      </div>
+      <div class="policies">
+        <h4>Policies</h4>
+        <nav>
+          <a href="/policies/terms-of-service"><p>Terms of Service</p></a>
+          <a href="/policies/refund-policy"><p>Refund Policy</p></a>
+          <a href="/policies/shipping-policy"><p>Shipping Policy</p></a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <h4>Subscribe to our Newsletter</h4>
+      <br />
+      <p id="bottom-view">
+        Be notified of upcoming new products, promotions, and clearance sales
+      </p>
+      <br />
+      <form action="/subscribe" method="POST">
+        <input
+          class="subscribe-input"
+          type="email"
+          name="email"
+          maxlength="255"
+          placeholder="Enter your email"
+          required
+        />
+        <button class="subscribe-btn" type="submit">Subscribe</button>
+      </form>
+
+      <%- include('subscriptionMessage.ejs') %> <% if
+      (locals.scrollToBottomView) {%>
+
+      <script>
+        const bottomViewAnchor = document.getElementById("bottom-view");
+        bottomViewAnchor.scrollIntoView({ behavior: "auto" });
+      </script>
+      <% } %>
+
+      <br />
+      <p>&copy;Mercadito Mexicano&trade; 2023. All rights reserved.</p>
+    </div>
+
+    <div class="contact">
+      <h4>Contact</h4>
+      <br />
+      <p>Mercadito Mexicano is owned by Las Delicias Group.</p>
+      <br />
+      <h5>Contact us:</h5>
+      <br />
+      <p>Phone: <a href="tel:+16049104900"> +1 (604) 910 4900</a></p>
+      <br />
+      <p>
+        Email:<a
+          href="mailto:info@mercaditomexicano.ca?subject=Inquiry&body=Do%20not%20hesitate%20to%20ask%20us%20any%20questions!"
+        >
+          info@mercaditomexicano.ca
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,13 @@
+<div class="collection-grid">
+  <% collections.forEach(collection =>{ %>
+  <div class="collection">
+    <a href="/collections/<%= collection.name %>">
+      <img src="/CollectionImages/<%= collection.image %>" />
+
+      <div class="content-container">
+        <p><%= collection.name %></p>
+      </div>
+    </a>
+  </div>
+  <% }) %>
+</div>

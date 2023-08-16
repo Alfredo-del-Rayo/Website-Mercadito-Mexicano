@@ -1,0 +1,66 @@
+<h2>Contact</h2>
+<p>Hi, how can we help you?</p>
+<p>
+  If you have any questions or comments for us, fill out the form below with
+  your details and we"ll get back to you within 48 hours.
+</p>
+<%- include('../partials/errorMessage.ejs') %> <%-
+include('../partials/contactMessage.ejs') %>
+<form action="/pages/contact" method="POST">
+  <div class="form-row">
+    <div class="form-item">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Jane Doe"
+        pattern="[A-Za-z ]+"
+        title="Only letters are allowed"
+        maxlength="50"
+        required
+      />
+    </div>
+    <div class="form-item">
+      <label for="email">Email:</label>
+      <input type="email" name="email" placeholder="james@gmail.com" required />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item half-row">
+      <label for="tel">Phone Number:</label>
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        required
+        pattern="^\(\d{3}\) \d{3}-\d{4}$"
+        placeholder="(604) 910-4900"
+      />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label for="message">Message:</label>
+      <textarea
+        name="message"
+        placeholder="Hello..."
+        pattern="[A-Za-z0-9 ]+"
+        title="Only letters and numbers are allowed"
+        maxlength="2000"
+      ></textarea>
+    </div>
+  </div>
+  <div class="form-row-end">
+    <button action="submit" class="index-btn">Send</button>
+  </div>
+</form>
+
+<script>
+  const phoneInput = document.getElementById("phone");
+
+  phoneInput.addEventListener("input", function (e) {
+    const input = e.target.value.replace(/\D/g, "").substring(0, 10); // Remove all non-digits and limit to 10 characters
+    const formattedInput = input.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+    e.target.value = formattedInput;
+  });
+</script>

@@ -1,0 +1,92 @@
+<% let product1 = products.find((product) => product['Image Position'] == '1') %>
+<% let
+productSelected = product1 %>
+<% let variants = true %> <% products.forEach( (product) => {
+if (product['Image Position'] == variant) {  productSelected = product}
+if(product['Option1 Value'] === "Default Title"){ variants = false}}) %> 
+<div class="product-show-container">
+  <div class="product-info">
+    <h2><%= product1.Title %></h2>
+    <h3>$<%= productSelected['Variant Price'].toFixed(2) %></h3>
+    <% if(variants) { %>
+
+    <select id="select-route"  <% if
+    (productSelected['Variant Inventory Qty'] < 1){ %> class="lighter-color" <% } %> name="variant">
+      <% products.forEach((product) => { if (product['Option1 Value'] != null &&
+      product['Option1 Value'] != '') { if (product['Image Position'] ==
+      variant) { %> <option selected <% if
+      (product['Variant Inventory Qty'] < 1){ %> class="lighter-color" <% } %>
+      label="<%= product['Option1 Value'] %>" value=""  > <% } else { %>
+      <option
+        label="<%= product['Option1 Value'] %>"
+        <% if(product['Variant Inventory Qty'] < 1){ %> class="lighter-color" <% } else{%>class="normal-color"<%}%>
+        value="/products/<%= product.Handle %>?variant=<%= product['Image Position'] %>"
+      ></option>
+      <% } %> <% } %> <% }) %>
+    </select>
+    <% } %> <% if (productSelected['Variant Inventory Qty'] > 0 ){%>
+      <form id="currentURL"  method="post">
+      <input type="hidden" name="itemId" value="<%= productSelected.id %>">
+      <div class="cart-btn-container">
+      <button type="submit" class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="cart-btn-container">
+    <a class="cart-btn buy-btn" href="/payments/<%= productSelected.id %>">Buy Now!</a>
+  </div>
+      </form>
+    <% } else { %>
+    <button type="button" class="out-btn">Sold Out</button>
+    <% } %>
+    <div class="show-text"> <%- product1['Body (HTML)'] %> <br><% if (productSelected['Variant Inventory Qty'] == 0) { %> <p><br> While some products may currently show as <strong>"Sold Out"</strong>, don't worry, we may have more varieties or similar items in our inventory. If you are interested in this particular product, please feel free to contact us through <strong>Messenger</strong> or <strong>WhatsApp</strong> ( info in the footer ), and our team will be more than happy to assist you. Your satisfaction is our priority, and we look forward to providing you with excellent service and a wide range of options to choose from.</p> <% } %></div>
+  </div>
+  <div class="product-images">
+    <div class="large-image-container">
+      <button id="product-click-forward-btn" class="scroll-forward-btn">
+        <span class="material-symbols-outlined"> arrow_forward_ios </span>
+      </button>
+      <button id="product-click-back-btn" class="scroll-back-btn">
+        <span class="material-symbols-outlined"> arrow_back_ios_new </span>
+      </button>
+
+      <img id="largeImage" /* prettier-ignore */ <% if (variants) { %>
+      src="/images/<%= productSelected['Variant Image'] %>" <% } else{ %>
+      src="/images/<%= product1['Image Src']%>" <% } %> alt="Large Image" />
+    </div>
+    <div class="large-grid smaller">
+      <div class="image-grid">
+        <% products.forEach(product => { %>
+
+        <div
+          class="image-unit"
+          id="<%= product['Image Position'] %>"
+          data-src="/images/<%= product['Image Src']%>"
+        >
+        <% if (product['Image Src'] != 'no_image') { %>
+          <img
+            src="/images/<%= product['Image Src']%>"
+            data-src="/images/<%= product['Image Src']%>"
+            alt="Single Image"
+          />
+        <% } %>
+        </div>
+        <%}) %>
+      </div>
+    </div>
+  </div>
+</div>
+<%if (locals.addedItem != null){ %>
+<%- include('../partials/addedToCartMessage.ejs', {product: productSelected}) %>
+<%} %>
+<%if (locals.errorNumber != null){ %>
+<%- include('../partials/errorAdding.ejs', {product: productSelected, errorNumber: errorNumber}) %>
+<%} %>
+
+<div class="previous-btn">
+<a id="previous-page"><p id="previous-content"></p></a>
+</div>
+
+<script src="/scripts/variantSelector.js"></script>
+<script src="/scripts/imageDisplay.js"></script>
+<script src="/scripts/cart.js"></script>
+<script src="/scripts/previous.js"></script>
+

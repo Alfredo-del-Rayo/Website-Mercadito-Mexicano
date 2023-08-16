@@ -1,0 +1,47 @@
+<div class="slide-container">
+  <img id="slideshow-img" class="slide-item" src="slideshowImages/main.png" />
+  <button class="mm-back-btn" id="back">
+    <span class="material-symbols-outlined"> arrow_back_ios </span>
+  </button>
+  <button class="mm-forward-btn" id="forward">
+    <span class="material-symbols-outlined"> arrow_forward_ios </span>
+  </button>
+</div>
+<p class="index-title">Best Sellers</p>
+<div class="large-grid-container hide-scrollbar">
+  <button id="scroll-forward-btn" class="scroll-forward-btn">
+    <span class="material-symbols-outlined"> arrow_forward_ios </span>
+  </button>
+  <button id="scroll-back-btn" class="scroll-back-btn">
+    <span class="material-symbols-outlined"> arrow_back_ios_new </span>
+  </button>
+  <div class="large-grid"><%- include('partials/productGrid.ejs') %></div>
+</div>
+
+<div class="btn-container">
+  <a href="/collections/all" class="index-btn">View All</a>
+</div>
+<div class="btn-container">
+  <a href="/products" class="index-btn">Custom Search</a>
+</div>
+<hr />
+<p class="index-title">Featured Collections</p>
+<div class="featured-collections">
+  <%- include('partials/collectionGrid') %>
+</div>
+<div class="btn-container">
+  <a href="/collections" class="index-btn">All Collections</a>
+</div>
+<hr />
+<div class="static-index-container">
+  <div class="static-text">
+    <h3>Mexican Handcrafts</h3>
+    <h4>All our handmade designs are exclusive and unique.</h4>
+  </div>
+  <img class="index-image" src="/webImages/index.png" />
+</div>
+
+<div class="parallax-image"></div>
+
+<script src="scripts/slideShow.js"></script>
+<script src="scripts/scrollPanel.js"></script>

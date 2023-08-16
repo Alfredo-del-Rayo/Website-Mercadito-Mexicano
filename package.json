@@ -5,20 +5,35 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "devStart": "nodemon server.js",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^8.12.0",
+    "async-retry": "^1.3.3",
     "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "csv-parser": "^3.0.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "fs": "^0.0.1-security",
-    "mongoose": "^7.3.4"
+    "jsonwebtoken": "^9.0.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^7.3.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.5.2",
+    "nodemailer": "^6.9.3",
+    "square": "^29.0.0",
+    "uuid": "^9.0.0",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

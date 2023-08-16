@@ -1,0 +1,13 @@
+<div class="product-grid">
+  <% products.forEach(product => { %>
+  <div class="product-item">
+    <a href="/products/<%= product.Handle %>?variant=1"
+      ><img
+        src="/images/<%= product['Image Src']%>"
+        alt="<%= product['Image Src']%>"
+    /></a>
+    <p><%= product.Title%></p>
+    <p>$<%= product['Variant Price'].toFixed(2)%></p>
+  </div>
+  <% }) %>
+</div>

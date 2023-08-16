@@ -1,0 +1,59 @@
+<header>
+  <a href="/">
+    <img
+      class="header__logo"
+      src="/Icons/square_logo.png"
+      alt=" Official Logo Mercadito Mexicano"
+    />
+  </a>
+
+  <div class="desktop"><%- include('navPanel.ejs') %></div>
+
+  <nav class="right__panel">
+    <ul>
+      <li>
+        <div id="menu">
+          <span class="material-symbols-outlined"> menu </span>
+        </div>
+      </li>
+      <li>
+        <div id="close">
+          <span class="material-symbols-outlined close"> close </span>
+        </div>
+      </li>
+      <li>
+        <a href="/products"
+          ><span class="material-symbols-outlined"> search </span></a
+        >
+      </li>
+
+      <% if ( locals.username != null ){ %>
+      <li class="no-grow">
+        <div class="user-logo">
+          <%= username.slice(0,2).toUpperCase() %>
+          <ul class="user-popout">
+            <li>
+              <a href="/account/logout"><p>Log out</p></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <%} else {%>
+      <li>
+        <a href="/account/login"
+          ><span class="material-symbols-outlined"> person </span>
+        </a>
+      </li>
+      <% } %>
+
+      <li>
+        <a href="/cart" class="shopping-bag">
+          <span class="material-symbols-outlined"> shopping_bag</span>
+          <% if (itemNumber > 0){ %>
+          <div class="shopping-items"><%= itemNumber %></div>
+          <% } %>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

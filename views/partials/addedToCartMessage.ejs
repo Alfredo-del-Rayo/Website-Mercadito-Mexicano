@@ -1,0 +1,24 @@
+<div class="added-to-cart-message">
+  <div class="message-row">
+    <% if(product['Option1 Value'] === 'Default Title'){ %> <img
+    src="/images/<%= product["Image Src"] %>">
+    <p><%= product.Title %></p>
+    <% }else{ %> <img src="/images/<%= product["Variant Image"] %>">
+    <div class="message-item">
+      <p id="message-title"><%= product.Title %></p>
+      <p><%= product["Option1 Value"]%></p>
+    </div>
+    <% } %>
+  </div>
+  <p>Product added to the Cart!</p>
+  <div class="cart-btns">
+    <div class="view-btn">
+      <a href="/cart">View Cart</a>
+    </div>
+    <div class="close-btn">
+      <a id="acurrentURL">Close</a>
+    </div>
+  </div>
+</div>
+
+<script src="/scripts/cart.js"></script>

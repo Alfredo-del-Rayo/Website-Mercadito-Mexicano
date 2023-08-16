@@ -1,0 +1,23 @@
+<% if (searchOptions.Title != null && searchOptions.Title != ''){%>
+<h2>Search for "<%= searchOptions.Title %>"</h2>
+<h3><%= products.length%> Results</h3>
+<%} else { %>
+<h2>Search Our Site</h2>
+<%}%>
+<form action="/products" method="GET">
+  <div class="search-container">
+    <label class="search-label"> Product Name: </label>
+    <input
+      class="search-input"
+      type="text"
+      name="Title"
+      placeholder="search.."
+      pattern="[A-Za-z0-9 ]+"
+      Title="Please do not add any special characters!"
+      value="<%= searchOptions.Title%>"
+    />
+    <button type="submit" class="search-btn">Search</button>
+  </div>
+</form>
+<br />
+<div class="product-search"><%- include('../partials/productGrid.ejs') %></div>

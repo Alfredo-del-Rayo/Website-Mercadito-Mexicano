@@ -1,0 +1,40 @@
+<div class="added-to-cart-message">
+  <div class="message-row">
+    <% if (errorNumber == 45000) { %>
+    <p class="error-adding">
+      The cart is full! No more items can be added to the cart!
+    </p>
+    <% } else if (errorNumber == 23000){ %>
+    <p class="error-adding">Product Has Already Been Added!</p>
+    <% } else if(errorNumber == 2){ %>
+    <p class="error-adding">Please Login or Register to use the Cart!</p>
+
+    <%} else { %>
+    <p class="error-adding">Error Adding Product!</p>
+    <% } %>
+  </div>
+  <% if (errorNumber != 2){ %>
+  <div class="cart-btns">
+    <div class="view-btn">
+      <a href="/cart">View Cart</a>
+    </div>
+    <div class="close-btn">
+      <a id="acurrentURL">Close</a>
+    </div>
+  </div>
+  <% } else{ %>
+  <div class="cart-btns">
+    <div class="view-btn">
+      <a href="/account/login">Login</a>
+    </div>
+    <div class="view-btn">
+      <a href="/account/register">Register</a>
+    </div>
+    <div class="close-btn">
+      <a id="acurrentURL">Close</a>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<script src="/scripts/cart.js"></script>

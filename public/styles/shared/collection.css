@@ -1,0 +1,111 @@
+.collection-grid{
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 30%));
+    gap: 10px;
+    justify-content: center;
+}
+.collection{
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.collection img{
+    width: 100%;
+}
+.collection p{
+    text-align: center;
+    font-family: 'Inter';
+    font-size: 18px;
+}
+
+.collection-heading{
+    position: relative;
+    background-color: black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    max-height: 300px;
+    flex-direction: column;
+
+}
+
+.collection-image{
+ width: 100%;
+ opacity: .5;
+}
+
+.collection-heading h2{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    font-family: 'Inter';
+    font-weight: 400;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.collection-products > .product-grid{
+    grid-template-columns: repeat(auto-fill, minmax( 250px, 25%)); 
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    align-content: start;
+    gap: 30px;
+}
+
+.collection-products > .product-grid > .product-item{
+    width: 100%;
+}
+.collection-products > .product-grid > .product-item img{
+     height: auto;
+     width: 100%;
+}
+
+.collection {
+    position: relative;
+    width: 100%; 
+    overflow: hidden; 
+  }
+  
+  .image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(0,0,0, .3);
+    z-index: 1; 
+  }
+  
+.content-container  p {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Abel';
+  }
+
+
+

@@ -1,0 +1,385 @@
+<div class="checkout-row max-width">
+  <div id="scroll-ctn">
+    <% products.forEach(product => { %><% if ( product['Variant Inventory Qty']
+    > 0){ %> <% productImage = product["Option1 Value"] === 'DefaultTitle'?
+    product["Image Src"] : product["Variant Image"] %>
+    <div class="product-row" data-id="<%= product.id %>">
+      <div class="product-side">
+        <div class="product-image">
+          <a href="/products/<%= product.Handle %>">
+            <img src="/images/<%= productImage%>" />
+          </a>
+        </div>
+        <div class="product-description">
+          <p><%= product.Title %></p>
+          <% if (product["Option1 Value"] != 'Default Title'){ %>
+          <p class="variant-heading"><%= product["Option1 Value"] %></p>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="product-price">
+        <p>$<%= product['Variant Price'].toFixed(2) %></p>
+        <% sum += product['Variant Price'] %>
+      </div>
+    </div>
+
+    <% }}) %>
+    <div class="product-row-title">
+      <div class="indent-right">
+        <% if ( products.length == 1){ %>
+        <h3>Subtotal (<%= products.length %> Item):&nbsp;</h3>
+        <% } else{ %>
+        <h3>Subtotal (<%= products.length %> Items):&nbsp;</h3>
+        <% } %>
+      </div>
+      <div class="bolder-font">
+        <h3>
+          $<%= sum.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          %> CAD
+        </h3>
+      </div>
+    </div>
+    <% let gst= sum * .05; let pst = sum *.07; let shipping = products.length *
+    20; sum += sum *.12 + shipping %>
+    <div class="product-row-title">
+      <div class="indent-right">
+        <h3>GST ( 5% ):&nbsp;</h3>
+      </div>
+      <div class="bolder-font">
+        <h3>
+          $<%= gst.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          %> CAD
+        </h3>
+      </div>
+    </div>
+    <div class="product-row-title">
+      <div class="indent-right">
+        <h3>PST ( 7% ):&nbsp;</h3>
+      </div>
+      <div class="bolder-font">
+        <h3>
+          $<%= pst.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          %> CAD
+        </h3>
+      </div>
+    </div>
+    <div class="product-row-title">
+      <div class="indent-right">
+        <h3>Shipping:&nbsp;</h3>
+      </div>
+      <div class="bolder-font">
+        <h3 id="ship" data-cost="<%= shipping %>">
+          $<%= shipping.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+          ",") %> CAD
+        </h3>
+      </div>
+    </div>
+    <div class="product-row-title">
+      <div class="indent-right">
+        <h3>Total:&nbsp;</h3>
+      </div>
+      <div class="bolder-font">
+        <h3 id="total" data-cost="<%= sum %>">
+          $<%= sum.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          %> CAD
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    const scrollPanel = document.getElementById("scroll-ctn");
+    scrollPanel.scrollTop = scrollPanel.scrollHeight;
+  });
+
+  /*
+        Copyright 2021 Square, Inc.
+
+        Licensed under the Apache License, Version 2.0 (found at "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+      */
+  const appId = "sandbox-sq0idb-DMSns9bYCpnnWexz4pjG9w";
+  const locationId = "LV61708ESJRP0";
+
+  async function initializeCard(payments) {
+    const card = await payments.card();
+    await card.attach("#card-container");
+    return card;
+  }
+
+  async function createPayment(token, verificationToken) {
+    const productElements = document.querySelectorAll(".product-row");
+    const idArray = [];
+    productElements.forEach((productElement) => {
+      const productId = productElement.dataset.id;
+      idArray.push(productId);
+    });
+    let amount =
+      parseFloat(document.getElementById("card-button").dataset.total) * 100;
+    amount = parseInt(amount);
+
+    const body = JSON.stringify({
+      idArray,
+      locationId,
+      sourceId: token,
+      verificationToken,
+      idempotencyKey: window.crypto.randomUUID(),
+      amount,
+    });
+
+    const paymentResponse = await fetch("/payments/createPayment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    });
+
+    if (paymentResponse.ok) {
+      return paymentResponse.json();
+    }
+
+    const errorBody = await paymentResponse.text();
+    throw new Error(errorBody);
+  }
+
+  async function tokenize(paymentMethod) {
+    const tokenResult = await paymentMethod.tokenize();
+    if (tokenResult.status === "OK") {
+      return tokenResult.token;
+    } else {
+      let errorMessage = `Tokenization failed with status: ${tokenResult.status}`;
+      if (tokenResult.errors) {
+        errorMessage += ` and errors: ${JSON.stringify(tokenResult.errors)}`;
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+
+  // Required in SCA Mandated Regions: Learn more at https://developer.squareup.com/docs/sca-overview
+  async function verifyBuyer(payments, token) {
+    const firstName = document.getElementById("first-name").value;
+    const lastName = document.getElementById("last-name").value;
+    const email = document.getElementById("email").value;
+    const amount = document.getElementById("card-button").dataset.total;
+    const country = document.getElementById("country").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const city = document.getElementById("city").value;
+    const verificationDetails = {
+      amount: amount,
+      billingContact: {
+        addressLines: [address, "Apartment 1"],
+        familyName: lastName,
+        givenName: firstName,
+        email: email,
+        country: country,
+        phone: phone,
+        city: city,
+      },
+      currencyCode: "CAD",
+      intent: "CHARGE",
+    };
+
+    const verificationResults = await payments.verifyBuyer(
+      token,
+      verificationDetails
+    );
+
+    return verificationResults.token;
+  }
+
+  // status is either SUCCESS or FAILURE;
+  async function displayPaymentResults(status, response) {
+    const statusContainer = document.getElementById("payment-status-container");
+    if (status === "SUCCESS") {
+      statusContainer.classList.remove("is-failure");
+      statusContainer.classList.add("is-success");
+      console.log(response);
+      let orderId = response.payment.orderId;
+      let receiptNumber = response.payment.id;
+      console.log(orderId);
+      console.log(receiptNumber);
+      var urlWithParameters =
+        "/payments/confirmation" +
+        "?orderId=" +
+        encodeURIComponent(orderId) +
+        "&receiptNumber=" +
+        encodeURIComponent(receiptNumber);
+      window.location.href = urlWithParameters;
+    } else {
+      let message = document.getElementById("unavailable-message");
+      statusContainer.classList.remove("is-success");
+      statusContainer.classList.add("is-failure");
+      message.textContent = "";
+      if (status == "UNAVAILABLE") {
+        let message = document.getElementById("unavailable-message");
+        message.textContent =
+          "One or More of the Products you are Purchasing is not Available!";
+      }
+    }
+
+    statusContainer.style.visibility = "visible";
+  }
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    if (!window.Square) {
+      throw new Error("Square.js failed to load properly");
+    }
+
+    let payments;
+    try {
+      payments = window.Square.payments(appId, locationId);
+    } catch {
+      const statusContainer = document.getElementById(
+        "payment-status-container"
+      );
+      statusContainer.className = "missing-credentials";
+      statusContainer.style.visibility = "visible";
+      return;
+    }
+
+    let card;
+    try {
+      card = await initializeCard(payments);
+    } catch (e) {
+      console.error("Initializing Card failed", e);
+      return;
+    }
+
+    async function handlePaymentMethodSubmission(event, card) {
+      event.preventDefault();
+      try {
+        // disable the submit button as we await tokenization and make a payment request.
+        cardButton.disabled = true;
+        const token = await tokenize(card);
+        const verificationToken = await verifyBuyer(payments, token);
+        const paymentResults = await createPayment(token, verificationToken);
+        displayPaymentResults("SUCCESS", paymentResults);
+
+        console.debug("Payment Success", paymentResults);
+      } catch (e) {
+        cardButton.disabled = false;
+        displayPaymentResults("FAILURE");
+        console.error(e.message);
+      }
+    }
+
+    async function checkQty() {
+      const productElements = document.querySelectorAll(".product-row");
+      const idArray = [];
+      productElements.forEach((productElement) => {
+        const productId = productElement.dataset.id;
+        idArray.push(productId);
+      });
+      let body = JSON.stringify(idArray);
+      let response = await fetch("/payments/checkQty", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      })
+        .then((response) => response.json())
+        .catch((error) => {
+          console.error("Fetch error:", error);
+          throw error;
+        });
+      return response;
+    }
+
+    const cardButton = document.getElementById("card-button");
+    cardButton.addEventListener("click", async function (event) {
+      try {
+        let available = await checkQty();
+        if (available == true) {
+          await handlePaymentMethodSubmission(event, card);
+        } else {
+          displayPaymentResults("UNAVAILABLE");
+        }
+      } catch (error) {
+        console.error(error);
+        displayPaymentResults("FAILURE");
+      }
+    });
+  });
+</script>
+
+<div class="checkout-row">
+  <form id="payment-form">
+    <%-include('checkoutForm.ejs') %>
+    <p style="text-align: center; margin-top: 20px; color: rgb(225, 166, 4)">
+      **Please enter '00000' on the ZIP field below if your Postal Code is
+      Canadian
+    </p>
+    <div id="card-container"></div>
+
+    <button
+      class="square-button"
+      id="card-button"
+      data-total="<%= sum.toFixed(2) %>"
+      type="button"
+    >
+      Pay $<%= sum.toFixed(2) .toString() .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      %> CAD
+    </button>
+  </form>
+  <div id="payment-status-container"></div>
+  <p id="unavailable-message" style="color: red; text-align: center"></p>
+</div>
+<script>
+  var selectElement = document.getElementById("delivery");
+  var cardBtn = document.getElementById("card-button");
+  var total = document.getElementById("total");
+  var ship = document.getElementById("ship");
+
+  selectElement.addEventListener("click", () => {
+    switch (selectElement.value) {
+      default:
+        if (ship.textContent === `$0.00`) {
+          let shipCost = parseFloat(ship.dataset.cost);
+          console.log(shipCost);
+          ship.textContent = `$${shipCost
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+          let cost = parseFloat(total.dataset.cost);
+          total.textContent = `$${cost
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} CAD`;
+          cardBtn.textContent = `Pay $${cost
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} CAD`;
+          cardBtn.dataset.total = cost;
+        }
+
+        break;
+      case "pickup":
+        let sum = total.dataset.cost - ship.dataset.cost;
+        if (ship.textContent != "$0.00") {
+          total.textContent = `$${sum
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} CAD`;
+          cardBtn.textContent = `Pay $${sum
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} CAD`;
+          cardBtn.dataset.total = sum;
+        }
+        ship.textContent = `$0.00`;
+
+        break;
+    }
+  });
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/Icons/square_logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <title>Mercadito Mexicano</title>
+  </head>
+  <body>
+    <div class="container"><%- include('../partials/header.ejs') %></div>
+    <div class="mobile"><%- include('../partials/navPanel.ejs') %></div>
+    <div class="inner-container"><%- body %></div>
+    <div class="lower-container"><%- include('../partials/footer.ejs') %></div>
+    <script src="/scripts/mobile.js"></script>
+  </body>
+</html>

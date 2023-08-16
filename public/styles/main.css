@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Inter&family=Nunito:wght@700&family=Poppins:wght@300&display=swap');
+@import 'shared/product.css';
+@import 'shared/header.css';
+@import 'shared/footer.css';
+@import 'shared/slideshow.css';
+@import 'shared/pages.css';
+@import 'shared/collection.css'; 
+@import 'shared/form.css';
+@import 'shared/cart.css';
+@import 'shared/checkout.css';
+body{
+    background:linear-gradient(to left, white, aliceblue);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+
+.inner-container{
+    margin: 0 2rem;
+}
+
+.lower-container{
+    display: flex;
+    justify-content: center;
+    background-color: linear-gradient(to top, rgb(86, 170, 244),  rgb(180, 197, 245));
+    border-top: groove rgba(142, 166, 245, 0.868);
+    bottom: 0;
+    width: 100%;
+    height: 10em;
+    margin-top:10px;
+}
+
+hr{
+    margin: 40px;
+    border-color: blue;
+    opacity: .3;
+}
+
+.error-message h5{
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    font-family: 'Nunito';
+
+}

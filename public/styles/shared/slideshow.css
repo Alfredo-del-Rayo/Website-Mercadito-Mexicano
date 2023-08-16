@@ -1,0 +1,97 @@
+.slide-container{
+    width: calc(100% + 3em);
+    margin: .5em;
+    top:0;
+    transform: translateX(-2em);
+    position: relative;
+    align-self: auto;
+}
+.slide-item{
+    width: 100%;
+}
+
+ .mm-forward-btn {
+    transform: scale(2);
+    right: 10px;
+    position: absolute;
+    color: white;
+    border: none;
+    cursor: pointer;
+    top: 45%;
+    background: rgba(beige, .5);
+}
+
+.mm-back-btn{
+    transform: scale(2);
+    left: 10px;
+    position: absolute;
+    color: white;
+    border: none;
+    cursor: pointer;
+    top: 45%;
+    background: rgba(beige, .5);
+}
+
+.parallax-image{
+    width: 100%;
+    height: 400px;
+    background-image: url("/webImages/etsy_cover.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-container{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+.index-btn{
+    display: flex;
+    margin: 20px 5px;
+    padding: 5px  5px;
+    width: minmax(300px, 15%);
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(21, 49, 234);
+    justify-content: center;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Abel';
+}
+
+.index-btn:hover{
+    background-color: rgb(0, 35, 160);
+}
+
+.static-index-container{
+    display: flex;
+    width: 100%;
+    margin: 100px 0;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.static-index-container h4{
+    font-size: 20px;
+    font-family: 'Abel';
+    color: black;
+    font-weight: 400;
+    text-align: center;
+}
+.index-image{
+    width: 50%;
+}
+
+@media(max-width: 700px){
+    .static-index-container{
+        flex-flow: column-reverse nowrap;
+    }
+    .index-image{
+        width: 100%;
+    }
+}

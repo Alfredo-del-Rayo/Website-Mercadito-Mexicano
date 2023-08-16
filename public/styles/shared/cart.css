@@ -1,0 +1,212 @@
+.product-row-title{
+    display: grid;
+    margin: 0 30px 30px 30px;
+    grid-template-columns: 2fr 1fr;
+    align-items: end;
+
+}
+
+.product-row-title h3{
+    font-size: 20px;
+    font-weight: 200;
+    text-align: start;
+}
+
+.product-side{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin: 5px;
+}
+
+
+
+.product-row{
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    min-height: 110px;
+    border-top: 1px solid gray; 
+    border-bottom: 1px solid gray;
+   
+}
+
+.product-image{
+    display: flex;
+    height: 100px;
+    display: block;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+.product-image > a > img{
+    height: 100px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.product-description{
+    margin-left:20px;
+    text-align: center;
+    max-width: 300px;
+    flex-shrink: 4;
+    flex-grow: 1;
+    font-size: 20px;
+    font-family: 'Abel';
+}
+
+
+.variant-heading{
+    font-size: 15px;
+}
+.del-btn{
+    background-color: transparent;
+    border: transparent;
+    color: blue;
+    font-size: 14px;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+
+.del-btn:hover{
+    color: rgb(133, 191, 241);
+}
+
+.product-price{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    margin-left:30px;
+}
+
+.empty-cart{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Abel';
+    color: black;
+}
+
+.empty-cart a{
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    color: blue;
+}
+
+.empty-cart > a > p{
+    display: inline-block;
+    outline: solid blue;
+    padding: 5px;
+    width: auto;
+    margin: 10px;
+}
+
+.added-to-cart-message{
+    position: fixed;
+    right:5px;
+    top: 5em;
+    background-color: rgb(205, 224, 228);
+}
+
+.added-to-cart-message{
+    text-align: center;
+    font-size: 15px;
+    color: rgb(75, 120, 7);
+    font-family: 'Poppins';
+}
+.message-row{
+    display:flex;
+    flex-flow: row nowrap;
+}
+.message-item{
+    color: black;
+    font-size: 15px;
+    font-family: 'Abel';
+    text-align: left;
+}
+#message-title{
+    font-size: 20px;
+}
+.added-to-cart-message img{
+    width: 80px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.indent-right{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.indent-right > h3{
+    color:black;
+    font-weight: 700;
+    font-family: 'Inter';
+}
+.bolder-font > h3{
+    color:black;
+    font-weight: 700;
+    font-family: 'Inter';
+}
+
+.error-adding{
+    color: red;
+    font-size: 20px;
+}
+.view-btn{
+    color: white;
+    display: inline-block;
+    background:  rgb(50, 143, 219);
+    height:20px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: .5em;
+    outline: blue;
+    cursor:pointer;
+}
+.close-btn{
+    color: white;
+    display: inline-block;
+    background: rgb(163, 172, 0);
+    height:20px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: .5em;
+    outline: blue;
+    cursor:pointer;
+
+}
+.cart-btns a{
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 600px){
+    .product-image{
+        height: 50px;
+        width: 50px;
+        padding: 0 5px;
+    }
+    
+    .product-image > a > img{
+        height:40px;
+        width: auto;
+    }
+
+    .product-row{
+        grid-template-columns: 1fr 80px;
+    }
+    .product-description{
+        font-size: 10px;
+    }
+    
+    
+    .variant-heading{
+        font-size: 8px;
+    }
+
+    .del-btn{
+        font-size: 10px;
+    }
+}
