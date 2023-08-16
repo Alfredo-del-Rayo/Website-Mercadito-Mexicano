@@ -3,7 +3,7 @@ This personal project developed by Alfredo del Rayo, represents Mercadito's Mexi
 
 Powered by Express framework, enhanced by EJS templates and MySQL database as its foundation
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/f233094a-b037-4d4c-81e9-834a2142bf1d)
+![image](README%20Images/main_page.png)
 
 ## Key Features:
 
