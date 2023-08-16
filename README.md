@@ -1,5 +1,5 @@
 # Website-Mercadito-Mexicano
-This personal project developed by Alfredo del Rayo represents the Mercadito Mexicano official shopping website. 
+This personal project developed by Alfredo del Rayo, represents Mercadito's Mexicano official shopping website. 
 
 Powered by Express framework, enhanced by EJS templates and MySQL database as its foundation
 
