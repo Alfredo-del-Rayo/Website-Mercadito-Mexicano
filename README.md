@@ -27,12 +27,12 @@ Dynamic Product Display Pages: The product show page displays the image of the s
 
 Empowering Account Route: Seamlessly create accounts with a real-time availability tracker. Experience secure registration with robust character restrictions, error highlighting, and encrypted password handling. Login journeys culminate in encrypted jwt tokens, reinforcing security. Logout invalidates cookies, offering peace of mind.
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/0b425b53-5f25-4f5f-a0a2-ce8bb8733ea4)
+![image](README%20Images/login.png)
 
 
 Intelligent Product Search: Our search bar is your gateway to discovery. Enter queries with ease; matching substrings unravel opportunities. The product's show page is a visual delight. Variant images elegantly glide into focus, reflecting selections. Sold-out alerts, cart management, and error guidance guarantee satisfaction.
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/16a73e58-27d5-49b1-a5b3-f22f5cb97eb0)
+![image](README%20Images/search.png)
 
 Curated Collection Exploration: Immerse in curated collections that mirror your preferences. Eleven distinct assortments await, enabling keyword-based exploration. Our collections redefine browsing, simplifying your journey to find the perfect match.
 
