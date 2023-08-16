@@ -38,9 +38,7 @@ Curated Collection Exploration: Immerse in curated collections that mirror your 
 
 Effortless Checkout & Payment: Seamless checkout, integrated with Square's API, transforms purchases into a breeze. Impeccable security powers credit card payments. Confirmation numbers and order details mark triumphant transactions. Cart management ensures real-time updates.
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/62ace8d5-42cc-4490-a284-66413bba5034)
-
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/5fe56066-9efd-4fb7-9d6b-428b7e138dc6)
+![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/aac7150b-4f2b-46dc-9d01-38b4f9e24416)
 
 Engagement via Contact Form: Effortless connection through user-friendly contact form. An email notification gracefully finds its way to us.
 
