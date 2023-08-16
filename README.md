@@ -13,11 +13,11 @@ Layout Perfection: Captivating header and footer that grace every page, except t
 
 Dynamic Main Page: An enchanting slideshow welcomes you, offering a visual narrative. The 'Best Sellers' section showcases 10 random products, inviting exploration. The 'Featured Collection' beckons with six captivating assortments, each a portal to a world of unique products. Parallax-effect imagery enriches the experience, leaving you inspired.
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/6c6522d2-1e85-4431-aeab-e023dd75784c)
+![image](README%20Images/best_sellers.png)
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/6bd15023-59fc-4043-93e8-8b5727e0f3d4)
+![image](README%20Images/featured_collections.png)
 
-Dynamic Product Display Pages: The product show page displays the image of the selected variant on the left which can be changed using the JavaScript button or the horizontal scroll panel that includes all images of the product when selected a black outline appears and it is displayed as the main image. When selecting a variant from the variant selector, the image of the variant becomes the main image and panel scrolls to make the variant image visible on the scroll panel. If the quantity of the product is 0 it appears as sold out. A fixed message on the top appears if the cart is full, the image has already been added, you have not registered, or you added a new item to the shopping cart.  Finally there is a button to go back that displays as back to home, cart or the selected collection.   
+Dynamic Product Display Pages: The product show page displays the image of the selected variant on the left which can be changed using the JavaScript button or the horizontal scroll panel that includes all images of the product when selected a black outline appears and it is displayed as the main image. When selecting a variant from the variant selector, the image of the variant becomes the main image and panel scrolls to make the variant image visible on the scroll panel. If the quantity of the product is 0 it appears as sold out. A fixed message on the top appears if the cart is full, the image has already been added, you have not registered, or you added a new item to the shopping cart. Finally, there is a button to go back that displays as back to home, cart or the selected collection.   
 
 ![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/59260986-6ae7-487b-9e3d-0f99c83c17b1)
 
