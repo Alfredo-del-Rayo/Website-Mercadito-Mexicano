@@ -1,5 +1,5 @@
 # Website-Mercadito-Mexicano
-This personal project, developed by Alfredo Alexei del Rayo, represents Mercadito's Mexicano official shopping website. It is powered by an Express framework, enhanced by EJS templates and a MySQL database as its foundation
+This personal project, developed by Alfredo Alexei del Rayo, represents Mercadito's Mexicano official shopping website. It is powered by an Express framework, enhanced by EJS templates and a MySQL database as its foundation. Take a look at the [demo video](https://youtu.be/0sx0qOln-So)!
 
 ![image](README%20Images/main_page.png)
 
