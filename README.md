@@ -1,7 +1,7 @@
 # Website-Mercadito-Mexicano
 This personal project developed by Alfredo del Rayo, represents Mercadito's Mexicano official shopping website. 
 
-Powered by Express framework, enhanced by EJS templates and MySQL database as its foundation
+Powered by Express framework, enhanced by EJS templates and a MySQL database as its foundation
 
 ![image](README%20Images/main_page.png)
 
@@ -15,6 +15,9 @@ Dynamic Main Page: An enchanting slideshow welcomes you, offering a visual narra
 
 ![image](README%20Images/best_sellers.png)
 
+
+Curated Collection Exploration: Immerse in meticulously curated assortments mirroring individual preferences. Eleven distinct assortments stand prepared for exploration, facilitating keyword-based search. 
+
 ![image](README%20Images/featured_collections.png)
 
 Dynamic Product Display Pages: The product show page displays the image of the selected variant on the left which can be changed using the JavaScript button or the horizontal scroll panel that includes all images of the product when selected a black outline appears and it is displayed as the main image. When selecting a variant from the variant selector, the image of the variant becomes the main image and panel scrolls to make the variant image visible on the scroll panel. If the quantity of the product is 0 it appears as sold out. A fixed message on the top appears if the cart is full, the image has already been added, you have not registered, or you added a new item to the shopping cart. Finally, there is a button to go back that displays as back to home, cart or the selected collection.   
@@ -25,7 +28,7 @@ Dynamic Product Display Pages: The product show page displays the image of the s
 
 
 
-Empowering Account Route: Seamlessly create accounts with a real-time availability tracker. Experience secure registration with robust character restrictions, error highlighting, and encrypted password handling. Login journeys culminate in encrypted jwt tokens, reinforcing security. Logout invalidates cookies, offering peace of mind.
+Empowering Account Route: Seamless creation of accounts with a real-time availability tracker. Secure registration with robust character restrictions, error highlighting, and encrypted password handling. Login journeys culminate in encrypted JWT tokens, reinforcing security. Logout invalidates cookies, offering peace of mind.
 
 ![image](README%20Images/login.png)
 
@@ -34,9 +37,8 @@ Intelligent Product Search: Our search bar is your gateway to discovery. Enter q
 
 ![image](README%20Images/search.png)
 
-Curated Collection Exploration: Immerse in curated collections that mirror your preferences. Eleven distinct assortments await, enabling keyword-based exploration. Our collections redefine browsing, simplifying your journey to find the perfect match.
 
-Effortless Checkout & Payment: Seamless checkout, integrated with Square's API, transforms purchases into a breeze. Impeccable security powers credit card payments. Confirmation numbers and order details mark triumphant transactions. Cart management ensures real-time updates.
+Effortless Checkout & Payment: Seamless checkout, integrated with Square's API, transforms purchases into a breeze. Confirmation numbers and order details mark successful transactions. Cart management ensures real-time updates.
 
 ![image](README%20Images/checkout.png)
 Engagement via Contact Form: Effortless connection through user-friendly contact form. An email notification gracefully finds its way to us.
