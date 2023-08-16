@@ -9,7 +9,7 @@ Powered by Express framework, enhanced by EJS templates and MySQL database as it
 
 Layout Perfection: Captivating header and footer that grace every page, except the payments route. The header boasts a logo anchored to the main page, an elegant dropdown menu, and quick-access buttons for search, account, and shopping. Usernames personalize the experience, and the shopping bag flaunts the cart's item count. The footer holds insights, social links, and a subscription mechanism, empowering connections.
 
-![image](https://github.com/Alfredo-del-Rayo/Website-Mercadito-Mexicano/assets/99233341/d09f22e1-2981-47ff-9596-6882bd5507b4)
+![image](README%20Images/footer.png)
 
 Dynamic Main Page: An enchanting slideshow welcomes you, offering a visual narrative. The 'Best Sellers' section showcases 10 random products, inviting exploration. The 'Featured Collection' beckons with six captivating assortments, each a portal to a world of unique products. Parallax-effect imagery enriches the experience, leaving you inspired.
 
